@@ -74,9 +74,9 @@ sudo apt-get install jellyfish
 
 The “jellyfish count” command takes the following options:
 
--m or “mer” specifies the length
--C tells it to ignore directionality (it treats each read the same as its reverse complement).
--s is an initial estimate for the size of the hash table jellyfish uses, set > genome size
+-m or “mer” specifies the length <br>
+-C tells it to ignore directionality (it treats each read the same as its reverse complement).<br>
+-s is an initial estimate for the size of the hash table jellyfish uses, set > genome size<br>
 -o specifies the name of the output file. choose a name with the k-mer length in it.
 
 1) Running "jellyfish count" command
