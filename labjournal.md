@@ -102,3 +102,53 @@ I created the script ./scripts/k-mer.py to visualize k-mer distribution
 To estimate the genome size I modified k-mer.py
 The answer is 5199855
 
+## 3. Assembling E. coli X genome from paired reads
+
+We will use assembler SPAdes.
+
+### 3.1. Dowloading and unpacking SPAdes
+
+```bash
+wget https://cab.spbu.ru/files/release3.15.2/SPAdes-3.15.2-Linux.tar.gz
+gunzip SPAdes-3.15.2-Linux.tar.gz
+tar -xvf SPAdes-3.15.2-Linux.tar
+```
+
+Testing:
+```bash
+spades.py --test
+```
+### 3.2. Assembling genome from the library SRR292678
+
+```bash
+spades.py --pe1-1 SRR292678sub_S1_L001_R1_001.fastq --pe1-2 SRR292678sub_S1_L001_R2_001.fastq -o SRR292678
+```
+
+### 3.3. Quality of the resulting assembly
+
+We use QUAST online tool on scaffolds.fasta and contigs.fasta
+
+report for contigs.fasta:
+![contigs report](./images/contigs_report.jpg "contigs report")
+
+report for scaffolds.fasta:
+![scaffolds report](./images/scaffolds_report.jpg "scaffolds report")
+
+### 3.4. Effect of read correction
+
+Using jellyfish on corrected files:
+
+```bash
+jellyfish count -m 31 -C -s 5499346 -o kmercorrected SRR292678/corrected/SRR292678sub_S1_L001_R1_001.00.0_0.cor.fastq
+```
+
+Creating the histogram file
+
+```bash
+jellyfish histo kmercorrected > kmercorrectedhist.txt
+```
+
+Then I made the plot using ./scripts/k-mer.py
+![corrected k-mer distribution](./scripts/kmer_corrected.png "corrected k-mer distribution")
+
+There are fewer low frequent reads in corrected reads, which are related to sequencing errors.
