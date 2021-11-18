@@ -128,10 +128,10 @@ spades.py --pe1-1 SRR292678sub_S1_L001_R1_001.fastq --pe1-2 SRR292678sub_S1_L001
 
 We use QUAST online tool on scaffolds.fasta and contigs.fasta
 
-report for contigs.fasta:
+#### report for contigs.fasta:
 ![contigs report](./images/contigs_report.jpg "contigs report")
 
-report for scaffolds.fasta:
+#### report for scaffolds.fasta:
 ![scaffolds report](./images/scaffolds_report.jpg "scaffolds report")
 
 ### 3.4. Effect of read correction
@@ -148,7 +148,27 @@ Creating the histogram file
 jellyfish histo kmercorrected > kmercorrectedhist.txt
 ```
 
-Then I made the plot using ./scripts/k-mer.py
+#### Then I made the plot using ./scripts/k-mer.py
 ![corrected k-mer distribution](./scripts/kmer_corrected.png "corrected k-mer distribution")
 
 There are fewer low frequent reads in corrected reads, which are related to sequencing errors.
+
+## 4. Impact of reads with large insert size
+
+### 4.1. Running SPAdes
+Now we run SPAdes by consolidating three libraries. We use all three libraries: SRR292678 as a paired ends, SRR292862 and SRR292770 as a mate pairs.
+
+```bash
+spades.py --pe1-1 SRR292678sub_S1_L001_R1_001.fastq --pe1-2 SRR292678sub_S1_L001_R2_001.fastq --mp1-1 SRR292862_S2_L001_R1_001.fastq --mp1-2 SRR292862_S2_L001_R2_001.fastq --mp2-1 SRR292770_S1_L001_R1_001.fastq --mp2-2 SRR292770_S1_L001_R2_001.fastq -o assembly2
+```
+We use QUAST online tool on scaffolds.fasta and contigs.fasta
+
+#### report for contigs.fasta:
+![contigs report](./images/contigs_report2.jpg "contigs report")
+
+#### report for scaffolds.fasta:
+![scaffolds report](./images/scaffolds_report2.jpg "scaffolds report")
+
+N50 becomes higher, it happened through the use of mate pairs, which increases assembly accuracy solving repeats.
+
+
