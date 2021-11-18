@@ -171,4 +171,15 @@ We use QUAST online tool on scaffolds.fasta and contigs.fasta
 
 N50 becomes higher, it happened through the use of mate pairs, which increases assembly accuracy solving repeats.
 
+## 5. Genome Annotation
+
+### 5.1. Installing Prokka:
+```bash
+sudo apt install prokka
+```
+
+### 5.2. Running Prokka:
+```bash
+prokka scaffolds.fasta --centre X --compliant
+```
 
