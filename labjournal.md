@@ -229,3 +229,19 @@ We can find the 16S rRNA in scaffolds [291457:292994], [333038:333038], [906257:
 
 As a result we have the best match with NC_011748.1 Escherichia coli 55989, complete genome. Next, we download genome sequence and save as relative.fasta
 
+## 7. What is the genetic cause of HUS?
+
+We analyzed the alignment of E. coli X and reference genome using Mauve tool. We selected reference genome sequence and annotated E. coli X genome as input files and search for shiga toxin-related genes.<br>
+
+We found the following genes:<br>
+1) stxB (3483605 - 3483874), length: 270 <br>
+2) stxA (3483886 - 3484845), length: 960
+
+## Tracing the source of toxin genes in E. coli X
+
+On both sides of shiga toxin-related genes we can find phage proteins. So it is very likely that the origin of these toxin genes in E.coli X is phage.
+
+![phage_proteins](./images/phage_proteins.jpg "phage_proteins")
+
+
+
