@@ -227,6 +227,5 @@ We can find the 16S rRNA in scaffolds [291457:292994], [333038:333038], [906257:
 ![blast](./images/blast.jpg "blast")
 ![blast result](./images/blast_res.jpg "blast result")
 
-As a result we have the best match with Escherichia coli str. K-12 substr. MG1655, complete genome. Next, we download genome sequence and save as relative.fasta
-
+As a result we have the best match with NC_011748.1 Escherichia coli 55989, complete genome. Next, we download genome sequence and save as relative.fasta
 
