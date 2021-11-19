@@ -237,11 +237,29 @@ We found the following genes:<br>
 1) stxB (3483605 - 3483874), length: 270 <br>
 2) stxA (3483886 - 3484845), length: 960
 
-## Tracing the source of toxin genes in E. coli X
+## 8. Tracing the source of toxin genes in E. coli X
 
 On both sides of shiga toxin-related genes we can find phage proteins. So it is very likely that the origin of these toxin genes in E.coli X is phage.
 
-![phage_proteins](./images/phage_proteins.jpg "phage_proteins")
+![phage_proteins](./images/phage_proteins.png "phage_proteins")
 
+## 9. Antibiotic resistance detection
 
+We used ResFinder (https://cge.cbs.dtu.dk/services/ResFinder/). We uploaded the “scaffolds.fasta” file from the SPAdes output, and in the field “Select Antimicrobial configuration”, selected “All”.
+
+### The results for E. coli X
+![X_antibiotic_resistance](./images/X_antibiotic_resistance.jpg "X_antibiotic_resistance")
+
+### The results for the reference
+![r_antibiotic_resistance](./images/r_antibiotic_resistance.jpg "r_antibiotic_resistance")
+
+So we have found out that E. coli X is resistant to ampicillin, cefepime, cefotaxime, ceftazidime, sulfamethoxazole, tetracycline, trimethoprim. The reference is also resistant to tetracycline.
+
+## 10. Antibiotic resistance mechanism
+
+We searched for β-lactamase enzymes using the Mauve tool. We have found: <br>
+
+1) bla_1 gene (5195566 - 5196441). On the left we found Tn3 family tranposase <br>
+2) bla_2 gene (5199263 - 5200123). On the left we found tnpR_1 gene <br>
+3) ampC gene (4758802 – 4759935). On the left we found frdA, frdB, frdC, frdD <br>
 
